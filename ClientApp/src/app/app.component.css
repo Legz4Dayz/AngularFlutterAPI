@@ -1,0 +1,12 @@
+.TestArea {
+    border: 1px black solid;
+}
+
+.containingRow {
+    margin-top: 2em; 
+    height: 500px;
+}
+
+.redBox {
+        border: 1px red solid;
+}

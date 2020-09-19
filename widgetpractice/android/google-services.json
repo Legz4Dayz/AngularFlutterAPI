@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "421341944455",
+    "firebase_url": "https://mlivi-widgetpractice.firebaseio.com",
+    "project_id": "mlivi-widgetpractice",
+    "storage_bucket": "mlivi-widgetpractice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421341944455:android:c7079a0d9aeceecb817622",
+        "android_client_info": {
+          "package_name": "com.example.widgetpractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421341944455-hqem1ld243r2rb0vavm67i27faiih99f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACqCu6UdJ7wtwqwcvstbqFz21NxNRAOU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421341944455-hqem1ld243r2rb0vavm67i27faiih99f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
