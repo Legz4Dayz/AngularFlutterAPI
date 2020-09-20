@@ -29,7 +29,8 @@ namespace Commander
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => options.AddPolicy("AllowEverything", builder => builder.AllowAnyOrigin()
+            services.AddCors(options => options.AddPolicy("AllowEverything", builder => builder.WithOrigins("http://localhost:4200/")
+                                                                                                .SetIsOriginAllowed((host) => true)
                                                                                                 .AllowAnyMethod()
                                                                                                 .AllowAnyHeader()));
 
@@ -53,12 +54,12 @@ namespace Commander
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRouting();
+
             app.UseCors("AllowEverything");
 
             app.UseHttpsRedirection();
-
-            app.UseRouting();
-
+          
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

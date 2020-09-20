@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Flutter",
-            "type": "dart",
+            "type": "chrome",
             "request": "launch",
-            "program": "widgetpractice/lib/main.dart"
-        },
-
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        }
     ]
 }

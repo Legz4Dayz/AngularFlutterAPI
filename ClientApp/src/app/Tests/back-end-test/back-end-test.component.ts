@@ -21,9 +21,9 @@ export class BackEndTestComponent implements OnInit {
 
   ngOnInit(){
   this.http.get<command[]>('https://localhost:5001/api/commands/')
-  .subscribe( ( result : command[] ) => { this.jsonList = result; }, error => { alert(error);});
+  .subscribe( ( result : command[] ) => { this.jsonList = result; }, error => { alert(error.message);});
 
-  this.http.get<command>('https://localhost:5001/api/commands/2')
+  this.http.get<command>('https://localhost:5001/api/commands/3')
   .pipe(
     map(
       b => <commandPipeTest>{

@@ -1,0 +1,8 @@
+button {
+border-radius: 4px;
+text-decoration: none; 
+background: rgb(3,4,94);
+background: radial-gradient(circle, rgba(3,4,94,1) 0%, rgba(0,180,216,1) 50%, rgba(202,240,248,1) 100%);
+
+}
+
