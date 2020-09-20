@@ -2,3 +2,81 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.TestArea {
+    border: 1px black solid;
+}
+
+.containingRow {
+    margin-top: 2em; 
+    height: 500px;
+}
+
+.redBox {
+        border: 1px red solid;
+}
+
+.background {
+    background: #242629;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7C7473, #242629);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7C7473, #242629); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+/* button {
+border-radius: 2px;
+text-decoration: none; 
+color: #242629;
+background: #FCFAFA;
+
+/* background: linear-gradient(#86E7ED 0%,#789393 50%,#fcfafa 100%); */
+/* }
+
+button:hover {
+    color: #242629;
+    background: #86E7ED;
+
+} */ 
+
+Button {
+	box-shadow:inset 0px 0px 5px -1px #1c1b18;
+	background:linear-gradient(to bottom, #333029 0%, #789393 100%);
+	background-color:#0fcfaf;
+	border-radius:4px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#FCFAFA;
+    font-family:Trebuchet MS;
+	/* font-family: Calibri; */
+	font-size:14px;
+	padding:12px 41px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #242629;
+}
+Button:hover {
+	background:linear-gradient(to bottom, #789393 5%, #0fcfaf 100%);
+    background-color:#789393;
+    color: #242629;
+}
+Button:active {
+	position:relative;
+	top:1px;
+}
+
+/* {
+    App scheme
+    #FCFAFA white 
+    #789393 grey 
+    #86E7ED light blue 
+    #7C7473 dark grey 
+    #242629 black 
+} */
+
+
+/* {
+    App scheme
+    #FCFAFA white 
+    #789393 grey 
+    #86E7ED light blue 
+    #7C7473 dark grey 
+    #242629 black 
+} */

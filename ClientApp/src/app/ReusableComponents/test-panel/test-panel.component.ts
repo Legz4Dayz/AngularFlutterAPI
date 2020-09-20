@@ -14,6 +14,23 @@ export class TestPanelComponent implements OnInit {
   //^ binds the parents "parentArray" value to this components
   //input array
   
+  
+  redBoxx = "col-3 d-flex text-center align-items-center redBox";
+  blackBoxx = "TestArea col-9 d-flex justify-content-center align-items-center";
+  title = "row d-flex align-items-center justify-content-around text-info";
+
+  /*
+    Test Area
+  */
+  //TestPanel Data
+  // testPanelArray = ["yes", "this", "component", "works"];
+  
+  //CustomButton
+  buttonText = "Test Button";
+
+  // Test End
+
+
   constructor() { }
 
   ngOnInit(): void {

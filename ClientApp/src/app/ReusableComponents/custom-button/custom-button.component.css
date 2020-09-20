@@ -1,8 +1,49 @@
-button {
-border-radius: 4px;
+/* button {
+border-radius: 2px;
 text-decoration: none; 
-background: rgb(3,4,94);
-background: radial-gradient(circle, rgba(3,4,94,1) 0%, rgba(0,180,216,1) 50%, rgba(202,240,248,1) 100%);
+color: #242629;
+background: #FCFAFA;
 
+/* background: linear-gradient(#86E7ED 0%,#789393 50%,#fcfafa 100%); */
+/* }
+
+button:hover {
+    color: #242629;
+    background: #86E7ED;
+
+} */ 
+
+Button {
+	box-shadow:inset 0px 0px 5px -1px #1c1b18;
+	background:linear-gradient(to bottom, #0fcfaf 5%, #789393 100%);
+	background-color:#0fcfaf;
+	border-radius:4px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#242629;
+    font-family:Trebuchet MS;
+	/* font-family: Calibri; */
+	font-size:14px;
+	padding:12px 41px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #242629;
 }
+Button:hover {
+	background:linear-gradient(to bottom, #789393 5%, #0fcfaf 100%);
+	background-color:#789393;
+}
+Button:active {
+	position:relative;
+	top:1px;
+}
+
+/* {
+    App scheme
+    #FCFAFA white 
+    #789393 grey 
+    #86E7ED light blue 
+    #7C7473 dark grey 
+    #242629 black 
+} */
 
