@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackEndTestComponent } from './tests/back-end-test/back-end-test.component';
 import { CustomButtonComponent } from './reusablecomponents/custom-button/custom-button.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { HomeComponent } from './pages/home/home.component';
     BackEndTestComponent,
     CustomButtonComponent,
     HomeComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

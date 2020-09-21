@@ -1,0 +1,17 @@
+
+<div class="container" style="height: 100em;">
+<p>Sign-in page</p>
+<button [routerLink]="('/home')">HOME</button>
+<br />
+<div class="col d-flex justify-content-center align-self-center">
+<form class="form-group" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input class="form-group" type="text" [(ngModel)]=loginAttempt.username id="username">
+    <label for="username">Username</label> <br />
+    <input id="password" type="password" [(ngModel)]=loginAttempt.password>
+    <label for="password">Password</label><br />
+    <button class="form-group" type="submit">SIGN-IN</button>
+    <button class="form-group" type="button">CREATE ACCOUNT</button>
+
+</form>
+</div>
+</div>

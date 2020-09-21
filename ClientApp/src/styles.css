@@ -36,6 +36,15 @@ button:hover {
 
 } */ 
 
+h1 {
+    font-family:Trebuchet MS;
+}
+
+label {
+    font-family: Trebuchet MS;
+    color: #FCFAFA 
+}
+
 Button {
 	box-shadow:inset 0px 0px 5px -1px #1c1b18;
 	background:linear-gradient(to bottom, #333029 0%, #789393 100%);
