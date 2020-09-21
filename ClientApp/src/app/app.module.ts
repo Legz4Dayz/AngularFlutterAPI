@@ -9,6 +9,7 @@ import { TestPanelComponent } from './reusablecomponents/test-panel/test-panel.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackEndTestComponent } from './tests/back-end-test/back-end-test.component';
 import { CustomButtonComponent } from './reusablecomponents/custom-button/custom-button.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CustomButtonComponent } from './reusablecomponents/custom-button/custom
     TestPanelComponent,
     BackEndTestComponent,
     CustomButtonComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

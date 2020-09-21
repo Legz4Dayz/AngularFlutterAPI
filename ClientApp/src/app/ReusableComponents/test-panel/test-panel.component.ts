@@ -14,6 +14,9 @@ export class TestPanelComponent implements OnInit {
   //^ binds the parents "parentArray" value to this components
   //input array
   
+  routeHome(){
+    Navigator.name
+  }
   
   redBoxx = "col-3 d-flex text-center align-items-center redBox";
   blackBoxx = "TestArea col-9 d-flex justify-content-center align-items-center";
