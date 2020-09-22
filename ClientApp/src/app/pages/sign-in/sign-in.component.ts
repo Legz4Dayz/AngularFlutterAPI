@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl, Validator, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {signIn} from 'src/app/models/sign-in';
@@ -11,26 +11,32 @@ import {signIn} from 'src/app/models/sign-in';
 })
 export class SignInComponent implements OnInit {
 
-  constructor( private route: Router) { }
-
   loginControl: FormGroup;
+  username: FormControl
+  password: FormControl
 
-
-
+  constructor( private route: Router) { }
   ngOnInit(): void {
+    this.username = new FormControl(Validators.required);
+    this.password = new FormControl(Validators.required);
     
-  let username = new FormControl();
-  let password = new FormControl();
-  this.loginControl = new FormGroup({
-    username: username,
-    password: password
-  })
+    this.loginControl = new FormGroup({
+    username: this.username,
+    password: this.password
+  });
+}
+  onSubmit(form){
+
   }
 
-
-  onSubmit(form : signIn){
-    console.log(form.password);
+  validateUsername() : boolean {
+    return this.username.invalid || this.username.touched;
   }
+
+  validatePassword() : boolean {
+    return this.password.invalid || this.password.touched;
+  }
+
 }
 
 

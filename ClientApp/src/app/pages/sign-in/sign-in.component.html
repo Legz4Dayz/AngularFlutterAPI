@@ -4,11 +4,20 @@
 <button [routerLink]="('/home')">HOME</button>
 <br />
 <div class="col d-flex justify-content-center align-self-center">
-<form class="form-group" [formGroup]="loginControl">
-    <input class="form-group" formControlName="username" type="text" id="username">
+<form class="form-group" [formGroup]="loginControl" (ngSubmit)="onSubmit(loginControl.value)" autocomplete="off" novalidate>
+   
+    <input class="form-group" formControlName="username" 
+    type="text" id="username"
+    [ngClass]="{ 'error' : !validateUsername()}">
+    <em *ngIf="!validateUsername()">Required</em>
+
     <label for="username">Username</label> <br />
-    <input id="password" formControlName="password" type="password" >
+
+    <input id="password" formControlName="password" type="password"
+    [ngClass]="{ 'error' : !validatePassword()}">
+    <em *ngIf="!validatePassword()">Required</em>
     <label for="password">Password</label><br />
+
     <button class="form-group" type="submit">SIGN-IN</button>
     <button class="form-group" type="button">CREATE ACCOUNT</button>
 
