@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormsModule, NgForm} from '@angular/forms';
+import {FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {signIn} from 'src/app/models/sign-in';
@@ -13,12 +13,18 @@ export class SignInComponent implements OnInit {
 
   constructor( private route: Router) { }
 
-  loginAttempt: signIn = {
-    username : 's',
-    password : 's'
-  }
+  loginControl: FormGroup;
+
+
 
   ngOnInit(): void {
+    
+  let username = new FormControl();
+  let password = new FormControl();
+  this.loginControl = new FormGroup({
+    username: username,
+    password: password
+  })
   }
 
 
