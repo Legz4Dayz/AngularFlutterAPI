@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {signIn} from 'src/app/models/sign-in';
@@ -14,16 +14,16 @@ export class SignInComponent implements OnInit {
   constructor( private route: Router) { }
 
   loginAttempt: signIn = {
-    username : null,
-    password : null
+    username : 's',
+    password : 's'
   }
 
   ngOnInit(): void {
   }
 
 
-  onSubmit(form){
-    
+  onSubmit(form : signIn){
+    console.log(form.password);
   }
 }
 
