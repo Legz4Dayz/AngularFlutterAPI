@@ -10,8 +10,8 @@ import { CustomButtonComponent } from './reusablecomponents/custom-button/custom
 import { HomeComponent } from './pages/home/home.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http/http'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations/animations'
+import {HttpClientModule} from '@angular/common/http'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
