@@ -5462,11 +5462,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mitchell Livingston\\Desktop\\AjaxTest\\AngularHomePage\\Commander\\Commander.csproj",
+      "projectUniqueName": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj",
       "projectName": "Commander",
-      "projectPath": "C:\\Users\\Mitchell Livingston\\Desktop\\AjaxTest\\AngularHomePage\\Commander\\Commander.csproj",
+      "projectPath": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj",
       "packagesPath": "C:\\Users\\Mitchell Livingston\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mitchell Livingston\\Desktop\\AjaxTest\\AngularHomePage\\Commander\\obj\\",
+      "outputPath": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mitchell Livingston\\AppData\\Roaming\\NuGet\\NuGet.Config",
