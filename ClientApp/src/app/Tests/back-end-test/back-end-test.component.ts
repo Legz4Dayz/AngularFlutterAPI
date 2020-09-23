@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { commandPipeTest } from 'src/app/models/commandPipeTest';
 import { command } from 'src/app/models/command';
 import { HttpClient } from '@angular/common/http';
-import { map, tap } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
+import { BackEndService } from './back-end-service.service';
 
 @Component({
   selector: 'app-back-end-test',
@@ -11,33 +12,15 @@ import { map, tap } from 'rxjs/operators';
 })
 export class BackEndTestComponent implements OnInit {
 
-  constructor( private http : HttpClient)
-  {
-
-  }
+  constructor( private http : HttpClient, private backend :BackEndService)
+  {}
   
   jsonList : command[]
   jsonPipe : commandPipeTest
 
-  ngOnInit(){
-  this.http.get<command[]>('https://localhost:5001/api/commands/')
-  .subscribe( ( result : command[] ) => { this.jsonList = result; }, error => { alert(error.message);});
+  commandSingle$ = this.backend.singleCommand$;
 
-  this.http.get<command>('https://localhost:5001/api/commands/3')
-  .pipe(
-    map(
-      b => <commandPipeTest>{
-        id : b.id,
-        howTo : b.howTo,
-        linePipe : b.line
-      }
-    ),
-    tap(x => console.log(`Command ID: ${x.id} has loaded`))
-  )
-  .subscribe(
-    result => { this.jsonPipe = result}, error => { console.log(error); }
-    
-  )
-}
-
+  commandList$ = this.backend.commandList$.pipe( shareReplay(1) );
+  
+  ngOnInit(){}
 }

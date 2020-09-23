@@ -1,26 +1,30 @@
 
 <div class="container" style="height: 100em;">
-<p>Sign-in page</p>
-<button [routerLink]="('/home')">HOME</button>
+    
+<div class="row d-flex justify-content-center align-self-center">
+    <h1 style="margin-top: 10px">SIGN IN PAGE</h1>
+</div>
+
+<div class="row d-flex justify-content-center align-self-center">
+    <button [routerLink]="('/home')">HOME</button>
+</div>
 <br />
 <div class="col d-flex justify-content-center align-self-center">
 <form class="form-group" [formGroup]="loginControl" (ngSubmit)="onSubmit(loginControl.value)" autocomplete="off" novalidate>
    
-    <input class="form-group" formControlName="username" 
+    <input class="form-group sign-in" formControlName="username" 
     type="text" id="username"
     [ngClass]="{ 'error' : !validateUsername()}">
     <em *ngIf="!validateUsername()">Required</em>
 
-    <label for="username">Username</label> <br />
+    <label for="username">USERNAME</label> <br />
 
-    <input id="password" formControlName="password" type="password"
+    <input id="password" class="form-group sign-in" formControlName="password" type="password"
     [ngClass]="{ 'error' : !validatePassword()}">
     <em *ngIf="!validatePassword()">Required</em>
-    <label for="password">Password</label><br />
-
-    <button class="form-group" type="submit">SIGN-IN</button>
+    <label for="password">PASSWORD</label><br />
+    <br>
+    <button class="form-group" style="margin-right: 5px;" type="submit">SIGN-IN</button>
     <button class="form-group" type="button">CREATE ACCOUNT</button>
-
 </form>
-</div>
 </div>

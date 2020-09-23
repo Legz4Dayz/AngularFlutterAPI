@@ -1,14 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { signIn } from '../models/sign-in';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SignInServiceService {
+export class SignInService {
 
-  constructor(private http: HttpClient) {
+  backend = "https://localhost:5001/api/commander";
 
-    const backend = "https://localhost:5001/api/commander";
-    let x = this.http.post(backend, "");
-   }
+  constructor(private http: HttpClient) {}
+
+   validateUser( attempt : signIn){
+    var response = this.http.post(this.backend, attempt);
+    
+    return response["data"] ? true : false; 
+  }
+    
 }

@@ -2,6 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .TestArea {
     border: 1px black solid;
 }
@@ -37,7 +38,12 @@ button:hover {
 } */ 
 
 h1 {
-    font-family:Trebuchet MS;
+    font-family: Trebuchet MS;
+    color: #FCFAFA 
+}
+
+.sign-in{
+    margin-right: 5px;
 }
 
 label {
