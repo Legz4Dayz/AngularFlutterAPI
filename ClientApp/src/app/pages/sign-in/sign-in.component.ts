@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validator, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validator, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {signIn} from 'src/app/models/sign-in';
@@ -12,19 +12,23 @@ import { SignInService } from 'src/app/shared/sign-in-service.service';
 })
 export class SignInComponent implements OnInit {
 
-  loginControl: FormGroup;
-  username: FormControl
-  password: FormControl
-
-  constructor( private route: Router, private signinService : SignInService) { }
+  constructor( private route: Router, private signinService : SignInService, private fb: FormBuilder) { }
   ngOnInit(): void {
-    this.username = new FormControl('', Validators.required);
-    this.password = new FormControl('', Validators.required);
+    }
+
     
-    this.loginControl = new FormGroup({
-    username: this.username,
-    password: this.password
-     });
+  loginControl = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  });
+
+  validateUsername() : boolean {
+    return this.loginControl.get('username').invalid || this.loginControl.get('username').touched;
+  }
+
+  validatePassword() : boolean {
+    return this.loginControl.get('password').invalid || this.loginControl.get('password').touched;
+
   }
 
   onSubmit(form){
@@ -33,15 +37,6 @@ export class SignInComponent implements OnInit {
     response = true;
     response ? this.route.navigate(['/home']) : '';
   }
-
-  validateUsername() : boolean {
-    return this.username.invalid || this.username.touched;
-  }
-
-  validatePassword() : boolean {
-    return this.password.invalid || this.password.touched;
-  }
-
 }
 
 
