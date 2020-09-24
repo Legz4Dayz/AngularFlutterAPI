@@ -56,9 +56,6 @@ namespace Commander.Data
             //Nothing
         }
 
-        public void ValidateUsers(Login login)
-        {
-
-        }
+        
     }
 }

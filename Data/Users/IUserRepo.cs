@@ -7,7 +7,7 @@ namespace Commander.Data.Users
     {
         bool SaveChanges();
 
-        void ValidateUsers(Login login );
+        bool ValidateUsers(Login login );
 
     }
 
