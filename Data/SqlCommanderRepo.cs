@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Commander.Dtos.Users;
 using Commander.Models;
 
 namespace Commander.Data
@@ -53,6 +54,11 @@ namespace Commander.Data
         public void UpdateCommand(Command cmd)
         {
             //Nothing
+        }
+
+        public void ValidateUsers(Login login)
+        {
+
         }
     }
 }

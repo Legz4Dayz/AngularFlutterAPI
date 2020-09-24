@@ -32,9 +32,8 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(form){
-
+    console.log(form.username)
     var response = this.signinService.validateUser(form);
-    response = true;
     response ? this.route.navigate(['/home']) : '';
   }
 }

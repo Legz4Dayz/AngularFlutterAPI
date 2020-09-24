@@ -12,6 +12,7 @@ export class SignInService {
   constructor(private http: HttpClient) {}
 
    validateUser( attempt : signIn){
+     console.log(JSON.stringify(attempt));
     var response = this.http.post(this.backend, attempt);
     
     return response["data"] ? true : false; 

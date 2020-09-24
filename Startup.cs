@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Commander.Data;
+using Commander.Data.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -44,6 +45,7 @@ namespace Commander
 
             // services.AddScoped<ICommanderRepo, MockCommanderRepo>(); old Hardcoded repo
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+            // services.AddScoped<IUserRepo, SqlUserRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
