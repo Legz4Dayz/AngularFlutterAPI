@@ -23,10 +23,18 @@ namespace Commander.Data.Users
         public bool ValidateUsers(Login login)
         {
             var result = _context.Users.FirstOrDefault(x => x.Username == login.Username);
-            if(result != null)
-                return true;
-            else
+            if(result == null)
                 return false;
+            else
+                return true;
+        }
+
+        public void CreateUser(Login login)
+        {
+            _context.Users.Add(new User{
+                Username = login.Username,
+                Password = login.Password
+            });
         }
     }
 }

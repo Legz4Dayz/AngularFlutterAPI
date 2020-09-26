@@ -9,6 +9,7 @@ namespace Commander.Data.Users
 
         bool ValidateUsers(Login login );
 
+        void CreateUser(Login login);
     }
 
 }

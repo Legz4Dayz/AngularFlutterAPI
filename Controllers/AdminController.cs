@@ -5,24 +5,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Commander.Controllers
 {
-    [Route("api/users")]
+    [Route("api/admin")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AdminController : ControllerBase
     {
         private readonly IUserRepo _userRepo;
         private readonly IMapper _mapper;
 
-        public UsersController(IUserRepo repo, IMapper mapper)
+        public AdminController(IUserRepo repo, IMapper mapper)
         {
             _userRepo = repo;
             _mapper = mapper;
         }
 
         [HttpPost]
-        public ActionResult <bool> ValidateUser(Login login) 
+        public ActionResult CreateUser(Login login) 
         {
-            bool response =_userRepo.ValidateUsers(login);
-            return response;
+            _userRepo.CreateUser(login);
+
+            _userRepo.SaveChanges();
+            return NoContent();
         }
     }
 
