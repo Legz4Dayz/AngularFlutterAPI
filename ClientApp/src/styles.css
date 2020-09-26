@@ -20,6 +20,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: #242629;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #7C7473, #242629);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #7C7473, #242629); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+       
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
     
 }
 /* button {
@@ -76,16 +83,6 @@ Button:active {
 	position:relative;
 	top:1px;
 }
-
-/* {
-    App scheme
-    #FCFAFA white 
-    #789393 grey 
-    #86E7ED light blue 
-    #7C7473 dark grey 
-    #242629 black 
-} */
-
 
 /* {
     App scheme

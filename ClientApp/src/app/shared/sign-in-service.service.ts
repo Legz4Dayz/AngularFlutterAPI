@@ -9,20 +9,24 @@ import { Subscription, Observable } from 'rxjs';
 })
 export class SignInService {
 
-  backend = "https://localhost:5001/api/users";
+  backend = "https://localhost:5001/api/";
 
-  validation$;  
+  validation$ : Observable<boolean>;
 
   constructor(private http: HttpClient) {}
 
-   validateUser( attempt : signIn){
-     console.log(JSON.stringify(attempt));
-     this.validation$ = this.http.post<boolean>(this.backend, attempt).pipe(
-      tap(x => console.log(x))
+  validateUser( attempt : signIn) : Observable<boolean>{
+    // console.log(JSON.stringify(attempt));
+    
+    return this.http.post<boolean>(this.backend +'users', attempt).pipe(
+    tap(data => console.log(data)));
+  }
+
+  createUser( create : signIn) :Observable<boolean>{
+
+    return this.http.post<boolean>(this.backend + 'admin', create ).pipe(
+      tap(data => console.log(data))
     );
-    // console.log(response["data"]);
-    // console.log(response);
-    // return response["data"] ? true : false; 
   }
 
 

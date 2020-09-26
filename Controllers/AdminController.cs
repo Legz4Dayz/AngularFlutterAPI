@@ -19,12 +19,12 @@ namespace Commander.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateUser(Login login) 
+        public ActionResult <bool> CreateUser(Login login) 
         {
-            _userRepo.CreateUser(login);
+            bool response = _userRepo.CreateUser(login);
 
             _userRepo.SaveChanges();
-            return NoContent();
+            return response;
         }
     }
 

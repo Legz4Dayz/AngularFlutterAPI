@@ -1,0 +1,12 @@
+   // password: ['', Validators.compose([
+    //       // 1. Password Field is Required
+    //       Validators.required,
+    //       // 2. check whether the entered password has a number
+    //       Validators.pattern(/\d/),
+    //       // 3. check whether the entered password has upper case letter
+    //       Validators.pattern(/[A-Z]/),
+    //       // 4. check whether the entered password has a lower-case letter
+    //       Validators.pattern(/[a-z]/),
+    //       // 5. Has a minimum length of 8 characters
+    //       Validators.minLength(8)])
+    //   ]

@@ -11,7 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CreateAccountComponent } from './pages/create-account/create-account/create-account.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     CustomButtonComponent,
     HomeComponent,
     SignInComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,

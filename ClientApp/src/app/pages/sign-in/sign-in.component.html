@@ -24,11 +24,8 @@
     <em *ngIf="!validatePassword()">Required</em>
     <label for="password">PASSWORD</label><br />
     <br>
-    <button class="form-group" style="margin-right: 5px;" type="submit">SIGN-IN</button>
-    <button class="form-group" type="button">CREATE ACCOUNT</button>
+    <button id="Test" class="form-group" style="margin-right: 5px;" type="submit">SIGN-IN</button>
+    <button class="form-group" type="button" [routerLink]="('/create-account')">CREATE ACCOUNT</button>
 </form>
 </div>
 
-<div *ngIf="validation$ | async as v">
-    {{v}}
-</div>

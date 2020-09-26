@@ -1,23 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validator, Validators, FormBuilder} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {signIn} from 'src/app/models/sign-in';
 import { SignInService } from 'src/app/shared/sign-in-service.service';
+import { Observable, of, EMPTY, BehaviorSubject, Subject, combineLatest, fromEvent, pipe} from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { nextTick } from 'process';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.css'
+  ],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignInComponent implements OnInit {
+
+    weight = of(70, 72, 76, 79, 75);
+    height = of(1.76, 1.77, 1.78);
+    bmi = combineLatest([this.height, this.weight]).pipe(
+      map(([height, weight]) => {
+        return weight / (height * height)
+      })
+    );
+    print = this.bmi.subscribe(
+      data => console.log(data)
+    );
+    
+    // combined$ = combineLatest([this.signinService.validation$, this.action$])
+    // .pipe(tap(x => console.log(x),
+    //       tap(() => console.log('Completed'))
+    //   ));
 
   constructor( private route: Router, private signinService : SignInService, private fb: FormBuilder) { }
   ngOnInit(): void {
     }
 
-    validation$ : boolean = this.signinService.validation$;
-    
+  validationResult: boolean;
+
+  private validationAction = new Subject<Boolean>()
+  validationAction$ = this.validationAction.asObservable();
+
+  action$ = fromEvent(document.getElementById('Test'), 'click');
+
   loginControl = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
@@ -29,11 +55,14 @@ export class SignInComponent implements OnInit {
 
   validatePassword() : boolean {
     return this.loginControl.get('password').invalid || this.loginControl.get('password').touched;
-
   }
 
   onSubmit(form){
-    this.signinService.validateUser(form);
+    this.signinService.validateUser(form).subscribe(
+    data => {
+      if(data){
+      this.route.navigate(['/home']);
+    }});
   }
 }
 

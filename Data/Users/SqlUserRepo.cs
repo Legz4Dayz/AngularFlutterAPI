@@ -29,12 +29,13 @@ namespace Commander.Data.Users
                 return true;
         }
 
-        public void CreateUser(Login login)
+        public bool CreateUser(Login login)
         {
             _context.Users.Add(new User{
                 Username = login.Username,
                 Password = login.Password
             });
+            return true;
         }
     }
 }
