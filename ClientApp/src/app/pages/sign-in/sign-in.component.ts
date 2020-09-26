@@ -16,6 +16,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     }
 
+    validation$ : boolean = this.signinService.validation$;
     
   loginControl = this.fb.group({
     username: ['', Validators.required],
@@ -32,9 +33,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(form){
-    console.log(form.username)
-    var response = this.signinService.validateUser(form);
-    response ? this.route.navigate(['/home']) : '';
+    this.signinService.validateUser(form);
   }
 }
 

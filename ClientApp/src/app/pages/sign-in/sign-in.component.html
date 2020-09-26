@@ -28,3 +28,7 @@
     <button class="form-group" type="button">CREATE ACCOUNT</button>
 </form>
 </div>
+
+<div *ngIf="validation$ | async as v">
+    {{v}}
+</div>
