@@ -55,19 +55,21 @@ export class CreateAccountComponent implements OnInit {
     return this.loginControl.get('passwordMatch').invalid;
   }
 
-  onSubmit(form){
+  onSubmit(){
 
-    if(this.loginControl.invalid)
-    {
-      alert('Fail');
-      return;
-    }
-
-    this.signinService.createUser(form).subscribe(
-    data => {
-      if(data){
-      this.route.navigate(['/home']);
-    }});
+    // if(this.loginControl.invalid)
+    // {
+    //   alert('Fail');
+    //   return;
+    // }
+    // else
+    // {
+      this.signinService.createUser(this.loginControl.value).subscribe(
+        data => {
+          if(data){
+          this.route.navigate(['/home']);
+        }});
+    // }
   }
 
 }

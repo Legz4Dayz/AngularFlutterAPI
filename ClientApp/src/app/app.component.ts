@@ -7,12 +7,10 @@ import { commandPipeTest } from 'src/app/models/commandPipeTest';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
 
- 
   constructor( private http : HttpClient)
   {
   }

@@ -1,48 +1,50 @@
-
 <div class="container" style="height: 100em;">
-    
-    <div class="row d-flex justify-content-center align-self-center">
-        <h1 style="margin-top: 10px">CREATE ACCOUNT PAGE</h1>
-    </div>
-    
-    <div class="row d-flex justify-content-center align-self-center">
-        <button [routerLink]="('/home')">SIGN-IN</button>
-    </div>
-    <br />
-    <div class="col d-flex justify-content-center align-self-center">
-    <form class="form-group" [formGroup]="loginControl" (ngSubmit)="onSubmit(loginControl.value)" autocomplete="off" novalidate>
-        <div class="row">
-            <input class="form-group sign-in" formControlName="username" 
-            type="text" id="username"
-            [ngClass]="{ 'error' : !validateUsername()}">
-            <label for="username">USERNAME</label> <br />
-            <em *ngIf="validateUsername()">Required</em>
-        </div>
-        <div class="row">
-            <input id="password" class="form-group sign-in" formControlName="password" type="password"
-            [ngClass]="{ 'error' : validatePassword()}">
-            <label for="password">PASSWORD</label><br />
-            <em class="form-group" *ngIf="validatePassword()">Required</em>
-        </div>
-            <div class="row">
-            <em class="form-group" *ngIf="validatePasswordTouched();">
-                Must Contain:<br> 
-                -1 uppercase letter<br>
-                -1 lowercase letter<br>
-                -A number<br>
-                -A minimum length of 8
-            </em>
-        </div>
-        <div class="row">        
-            <input id="passwordMatch" class="form-group sign-in" formControlName="passwordMatch" type="password"
-            [ngClass]="{ 'error' : validateMatch()}">
-            <label for="passwordMatch">PASSWORD CHECK</label>
-            <em *ngIf="validateMatch()">Required</em>
-        </div>
-    </form>
-
+    <div class="col">            
         <div class="row d-flex justify-content-center align-self-center">
-            <button class="form-group" type="submit">CREATE ACCOUNT</button>
+            <h1 style="margin-top: 10px">CREATE ACCOUNT PAGE</h1>
+        </div>
+        
+        <div class="row d-flex justify-content-center align-self-center">
+            <button [routerLink]="('/home')">SIGN-IN</button>
+        </div>
+        <br />
+        <!-- <div class="col d-flex justify-content-center align-self-center"> -->
+        <div class="d-flex justify-content-center align-self-center">
+            <form class="form-group" [formGroup]="loginControl" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+                <div class="row">
+                    <input class="form-group sign-in" formControlName="username" 
+                    type="text" id="username"
+                    [ngClass]="{ 'error' : !validateUsername()}">
+                    <label for="username">USERNAME</label> <br />
+                    <em *ngIf="validateUsername()">Required</em>
+                </div>
+                <div class="row">
+                    <input id="password" class="form-group sign-in" formControlName="password" type="password"
+                    [ngClass]="{ 'error' : validatePassword()}">
+                    <label for="password">PASSWORD</label><br />
+                    <em class="form-group" *ngIf="validatePassword()">Required</em>
+                </div>
+                    <div class="row">
+                    <em class="form-group" *ngIf="validatePasswordTouched();">
+                        Must Contain:<br> 
+                        -1 uppercase letter<br>
+                        -1 lowercase letter<br>
+                        -A number<br>
+                        -A minimum length of 8
+                    </em>
+                </div>
+                <div class="row">        
+                    <input id="passwordMatch" class="form-group sign-in" formControlName="passwordMatch" type="password"
+                    [ngClass]="{ 'error' : validateMatch()}">
+                    <label for="passwordMatch">PASSWORD CHECK</label>
+                    <em *ngIf="validateMatch()">Required</em>
+                </div>
+            </form>
+            </div>
+
+            <div class="row d-flex justify-content-center align-self-center">
+                <button type="submit" (click)="onSubmit()">CREATE ACCOUNT</button>
+            </div>
         </div>
 </div>
     
