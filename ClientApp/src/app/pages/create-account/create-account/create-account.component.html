@@ -1,7 +1,7 @@
 <div class="container" style="height: 100em;">
     <div class="col">            
         <div class="row CenterContent">
-            <h1 style="margin-top: 10px">CREATE ACCOUNT PAGE</h1>
+            <h1 style="margin-top: 10px">CREATE ACCOUNT</h1>
         </div>
         
         <div class="row CenterContent">
@@ -39,12 +39,14 @@
                     <label for="passwordMatch">PASSWORD CHECK</label>
                     <em *ngIf="validateMatch()">Required</em>
                 </div>
+
+                <div class="row CenterContent">
+                    <button type="submit" (click)="onSubmit()">CREATE ACCOUNT</button>
+                </div>
             </form>
             </div>
 
-            <div class="row CenterContent">
-                <button type="submit" (click)="onSubmit()">CREATE ACCOUNT</button>
-            </div>
+           
             
 
             <br />
