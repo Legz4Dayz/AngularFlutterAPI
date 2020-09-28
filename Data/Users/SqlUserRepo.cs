@@ -31,11 +31,14 @@ namespace Commander.Data.Users
 
         public bool CreateUser(Login login)
         {
-            _context.Users.Add(new User{
-                Username = login.Username,
-                Password = login.Password
-            });
-            return true;
+
+                _context.Users.Add(new User{
+                    Username = login.Username,
+                    Password = login.Password
+                });
+
+                return true;
+
         }
     }
 }

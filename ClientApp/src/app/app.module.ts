@@ -12,7 +12,8 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { CreateAccountComponent } from './pages/create-account/create-account/create-account.component'
+import { CreateAccountComponent } from './pages/create-account/create-account/create-account.component';
+import { ValidationMessageComponent } from './reusablecomponents/validation-message/validation-message.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CreateAccountComponent } from './pages/create-account/create-account/cr
     HomeComponent,
     SignInComponent,
     CreateAccountComponent,
+    ValidationMessageComponent,
   ],
   imports: [
     BrowserModule,

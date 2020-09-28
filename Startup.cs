@@ -56,11 +56,11 @@ namespace Commander
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
 
             app.UseCors("AllowEverything");
-
-            app.UseHttpsRedirection();
           
             app.UseAuthorization();
 

@@ -13,6 +13,10 @@ export class TestPanelComponent implements OnInit {
   //ex: [input] = "parentArray" 
   //^ binds the parents "parentArray" value to this components
   //input array
+
+  test2 = "yes";
+  test3 = "no";
+  testb = false;
   
  
   redBoxx = "col-3 d-flex text-center align-items-center redBox";

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import {signIn} from 'src/app/models/sign-in';
 import { SignInService } from 'src/app/shared/sign-in-service.service';
 import { Observable, of, EMPTY, BehaviorSubject, Subject, combineLatest, fromEvent, pipe} from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, throttleTime } from 'rxjs/operators';
 import { nextTick } from 'process';
 
 @Component({
@@ -34,13 +34,12 @@ export class SignInComponent implements OnInit {
     //   ));
 
   constructor( private route: Router, private signinService : SignInService, private fb: FormBuilder) { }
-  ngOnInit(): void {
-    }
+  ngOnInit(): void {}
 
-  validationResult: boolean;
-
-  private validationAction = new Subject<Boolean>()
-  validationAction$ = this.validationAction.asObservable();
+  validationAction$ = new BehaviorSubject<boolean>(null);
+  show = false;
+  successText = 'Successful Sign-In';
+  failureText = 'No Matching Username or Password Found';
 
   action$ = fromEvent(document.getElementById('Test'), 'click');
 
@@ -58,12 +57,23 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(form){
-    this.signinService.validateUser(form).subscribe(
-    data => {
-      if(data){
-      this.route.navigate(['/home']);
-    }});
+    this.show = true;
+    if(this.loginControl.valid)
+    {
+      this.signinService.validateUser(form).subscribe(
+        data => {
+            if(data){
+              this.validationAction$.next(true)
+              setTimeout( ()=> this.route.navigate(['/home']), 1000);
+            }
+            else
+              this.validationAction$.next(false);
+          },
+        error => {console.log(error); this.validationAction$.next(false);}
+      );
+    }
+    else
+      this.validationAction$.next(false);
   }
 }
-
 

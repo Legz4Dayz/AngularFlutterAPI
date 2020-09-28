@@ -1,0 +1,37 @@
+<div>
+    <!-- <div *ngIf="boolEvent;else elseContent">
+        <div class="Success">
+            {{successText}}
+        </div>
+    </div>
+    
+    <ng-template #elseContent>
+        <div class="Failure">
+            {{failText}}
+        </div>
+    </ng-template> -->
+    <div [ngSwitch]="boolEvent">
+        <div class="Success" *ngSwitchCase=true>
+            {{successText}}
+        </div>
+        <div class="Failure" *ngSwitchCase=false>
+            {{failText}}
+        </div>
+        <div *ngSwitchDefault>
+        </div>
+    </div>
+</div>
+<!-- 
+<div>
+    <div *ngIf="success">
+        <div class="Success">
+            {{successText}}
+        </div>
+    </div>
+    
+    <div *ngIf="failure">
+        <div class="Failure">
+            {{failText}}
+        </div>
+    </div>
+</div> -->

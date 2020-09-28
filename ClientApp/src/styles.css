@@ -84,6 +84,11 @@ Button:active {
 	top:1px;
 }
 
+.CenterContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* {
     App scheme
     #FCFAFA white 

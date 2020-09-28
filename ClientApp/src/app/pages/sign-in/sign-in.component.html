@@ -1,15 +1,15 @@
 
 <div class="container" style="height: 100em;">
     
-<div class="row d-flex justify-content-center align-self-center">
+<div class="row CenterContent">
     <h1 style="margin-top: 10px">SIGN IN PAGE</h1>
 </div>
 
-<div class="row d-flex justify-content-center align-self-center">
+<div class="row CenterContent">
     <button [routerLink]="('/home')">HOME</button>
 </div>
 <br />
-<div class="col d-flex justify-content-center align-self-center">
+<div class="col CenterContent">
 <form class="form-group" [formGroup]="loginControl" (ngSubmit)="onSubmit(loginControl.value)" autocomplete="off" novalidate>
    
     <input class="form-group sign-in" formControlName="username" 
@@ -27,5 +27,12 @@
     <button id="Test" class="form-group" style="margin-right: 5px;" type="submit">SIGN-IN</button>
     <button class="form-group" type="button" [routerLink]="('/create-account')">CREATE ACCOUNT</button>
 </form>
-</div>
 
+    
+</div>
+<br />
+<div *ngIf="show" class="row CenterContent">
+    <app-validation-message [successText]="successText" 
+    [failText]="failureText" [boolEvent]="validationAction$ | async" >
+    </app-validation-message>
+</div>

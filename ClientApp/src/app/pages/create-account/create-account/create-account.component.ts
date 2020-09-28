@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { SignInService } from 'src/app/shared/sign-in-service.service';
 
 @Component({
@@ -15,6 +16,9 @@ export class CreateAccountComponent implements OnInit {
     }
 
   validationResult: boolean;
+  
+  public validationAction$ = new BehaviorSubject<String>('');
+
 
   loginControl = this.fb.group({
       username: [null, Validators.required],
@@ -57,19 +61,22 @@ export class CreateAccountComponent implements OnInit {
 
   onSubmit(){
 
-    // if(this.loginControl.invalid)
-    // {
-    //   alert('Fail');
-    //   return;
-    // }
-    // else
-    // {
+    if(this.loginControl.invalid)
+    {
+      alert('Please Fix Required Fields');
+      return;
+    }
+    else
+    {
       this.signinService.createUser(this.loginControl.value).subscribe(
         data => {
           if(data){
-          this.route.navigate(['/home']);
-        }});
-    // }
+            this.validationAction$.next("Account Successfully Created.");
+        }
+        else{
+          this.validationAction$.next("We're sorry. An error occured while creating an account.");
+        }
+      });
+    }
   }
-
 }

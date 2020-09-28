@@ -1,0 +1,43 @@
+
+
+
+.Failure
+{
+    box-shadow:inset 0px 0px 5px -1px #1c1b18;
+	background: radial-gradient(#7C7473 , #f00f22 );
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    color: #FCFAFA;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+}
+
+.Success
+{
+    box-shadow:inset 0px 0px 5px -1px #1c1b18;
+	background: radial-gradient(#7C7473 , #86E7ED );
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    color: #242629;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+}
+
+
+/* {
+    App scheme
+    #FCFAFA white 
+    #789393 grey 
+    #86E7ED light blue 
+    #7C7473 dark grey 
+    #242629 black 
+    #f00f22 error red
+} */
