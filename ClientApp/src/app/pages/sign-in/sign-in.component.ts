@@ -17,21 +17,7 @@ import { nextTick } from 'process';
 })
 export class SignInComponent implements OnInit {
 
-    weight = of(70, 72, 76, 79, 75);
-    height = of(1.76, 1.77, 1.78);
-    bmi = combineLatest([this.height, this.weight]).pipe(
-      map(([height, weight]) => {
-        return weight / (height * height)
-      })
-    );
-    print = this.bmi.subscribe(
-      data => console.log(data)
-    );
-    
-    // combined$ = combineLatest([this.signinService.validation$, this.action$])
-    // .pipe(tap(x => console.log(x),
-    //       tap(() => console.log('Completed'))
-    //   ));
+ 
 
   constructor( private route: Router, private signinService : SignInService, private fb: FormBuilder) { }
   ngOnInit(): void {}
