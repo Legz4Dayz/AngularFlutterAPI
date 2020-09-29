@@ -22,7 +22,9 @@ namespace Commander.Data.Users
 
         public bool ValidateUsers(Login login)
         {
-            var result = _context.Users.FirstOrDefault(x => x.Username == login.Username);
+            var result = _context.Users
+            .FirstOrDefault(x => x.Username == login.Username && x.Password == login.Password);
+            
             if(result == null)
                 return false;
             else
@@ -31,14 +33,12 @@ namespace Commander.Data.Users
 
         public bool CreateUser(Login login)
         {
-
                 _context.Users.Add(new User{
                     Username = login.Username,
                     Password = login.Password
                 });
 
                 return true;
-
         }
     }
 }
