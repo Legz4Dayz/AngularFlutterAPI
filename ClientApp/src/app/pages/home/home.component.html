@@ -10,9 +10,9 @@
 
 
 <div class="col">
-    <div class="row">
+    <!-- <div class="row">
         <h3>X: {{mouseX}} Y: {{mouseY}}</h3>
-    </div>
+    </div> -->
     <div class="row">
         <button id="first">Button</button>
         <input type="text" id="second"> 
@@ -27,4 +27,11 @@
     <div class="row">
         <button id="test2">idTest2</button>
     </div>        
+
+    <div class="row">
+        <button id="test4">id Test 4</button>
+    </div>        
+
+    
+    <app-validation-message [boolEvent]="YesNoTest" [successText]="yes" [failText]="no"></app-validation-message>
 </div>

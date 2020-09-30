@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { combineLatest, fromEvent, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,50 +9,35 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit{
 
-  weight = of(70, 72, 76, 79, 75);
-  height = of(1.76, 1.77, 1.78);
-  bmi = combineLatest([this.height, this.weight]).pipe(
-    map(([height, weight]) => {
-      return weight / (height * height)
-    })
-  );
-  print = this.bmi.subscribe(
-    data => console.log(data)
-  );
-
- 
-  button: HTMLButtonElement;
-  input: HTMLInputElement;
-  mouseX: number;
-  mouseY: number;
+  idTest2 : Observable<any>
+  test3 : Observable<Event> 
+  test4 : Observable<Event>
   
-  idTest;
-  idTest2;
 
-  ngOnInit() {
-    this.button = document.querySelector('#first') as HTMLButtonElement;
-    let buttonStream$ = fromEvent(this.button, 'click')
-        .subscribe(event => console.log(event));
+  YesNoTest : boolean;
+  yes : string = "yes"
+  no: string = "no" //lol
 
-    this.idTest = document.getElementById('test');
-    let testStream$ = fromEvent(this.idTest, 'mousemove')
+  ngOnInit(){
+    let idTest = fromEvent(document.getElementById('test'), 'click')
       .subscribe(event => console.log(event));
 
     let idTest2 = fromEvent(document.getElementById('test2'), 'mousemove')
-      .subscribe(event => console.log(event));
+      .pipe(tap(() => this.YesNoTest = false))
+      .subscribe(event => console.log(event));                             //Coolest example
+    
+    this.test3 = fromEvent(document.getElementById('test4'), 'mousemove');
+    this.test4 = fromEvent(document.getElementById('test4'), 'click');
 
-    this.input = document.querySelector('#second') as HTMLInputElement;
-    let inputStream$ = fromEvent(this.input, 'keyup')
-        .subscribe(
-          event => console.log(event),
-          error => console.log(error),
-          () => console.log('Complete')
-        );
-
-    let moveStream$ = fromEvent(document, 'mousemove')
-        .subscribe(event => {
-          this.mouseX = event.clientX;
-          this.mouseY = event.clientY;          
-          });
-    }
+    combineLatest([this.test3, this.test4]).pipe(
+      map(([test, test2]) => {
+        return test.type + ' ' + test2.type
+      }),
+      tap(() => {
+        this.YesNoTest = true;
+      })
+      ).subscribe(event =>{ 
+        console.log(event);
+      });
+  }
 }
