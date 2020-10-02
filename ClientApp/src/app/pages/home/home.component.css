@@ -1,0 +1,18 @@
+
+  
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+
+  
+
+  /* {
+    App scheme
+    #FCFAFA white 
+    #789393 grey 
+    #86E7ED light blue 
+    #7C7473 dark grey 
+    #242629 black 
+} */

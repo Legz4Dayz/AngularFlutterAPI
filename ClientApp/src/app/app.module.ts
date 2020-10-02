@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CreateAccountComponent } from './pages/create-account/create-account/create-account.component';
-import { ValidationMessageComponent } from './reusablecomponents/validation-message/validation-message.component'
+import { ValidationMessageComponent } from './reusablecomponents/validation-message/validation-message.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { ValidationMessageComponent } from './reusablecomponents/validation-mess
     HomeComponent,
     SignInComponent,
     CreateAccountComponent,
-    ValidationMessageComponent,
+    ValidationMessageComponent
   ],
   imports: [
     BrowserModule,
