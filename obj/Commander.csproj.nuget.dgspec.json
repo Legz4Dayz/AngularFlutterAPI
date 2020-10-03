@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj": {}
+    "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\Commander.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj": {
+    "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\Commander.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj",
+        "projectUniqueName": "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\Commander.csproj",
         "projectName": "Commander",
-        "projectPath": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj",
+        "projectPath": "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\Commander.csproj",
         "packagesPath": "C:\\Users\\Mitchell Livingston\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\obj\\",
+        "outputPath": "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mitchell Livingston\\AppData\\Roaming\\NuGet\\NuGet.Config",

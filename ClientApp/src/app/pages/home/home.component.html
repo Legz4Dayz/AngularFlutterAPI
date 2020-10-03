@@ -12,12 +12,14 @@
 </nav>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xl-6">
-            <img style="max-width: 300px; max-height: 300px;" src="{{combinedClick$ | async}}">
+    <div class="row"  style="min-height: 600px;">
+        <div class="col-lg-6 CenterContent">
+            <div style="align-items: center;">
+                <img style="max-width: 400px; max-height: 500px;" src="{{combinedClick$ | async}}">
+            </div>
         </div>
 
-        <div class="col-xl-6">
+        <div class="col-lg-6">
                 <div class="CenterContent">
                     <button id="first">Button</button>
                     <input type="text" id="second"> 

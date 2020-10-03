@@ -20,34 +20,24 @@ export class HomeComponent implements OnInit{
   YesNoTest : boolean;
   yes : string = "yes"
   no: string = "no" //lol
-  test = new CatLink();
-
-  test5 : Observable<Event>
-  idTest5: Observable<CatLink>
 
   combinedClick$ : Observable<string>
-  ngOnInit(){
-    this.catpics.getCatPicture().subscribe(
-      data => this.test = Convert.toCatLink(data)[0]
-    );
 
-    this.idTest5 = this.catpics.getCatPicture().pipe(
+  ngOnInit(){
+
+    let idTest5 = this.catpics.getCatPicture().pipe(
       map(data => {
         return Convert.toCatLink(data)[0];
       })
     );
 
-    this.test5 = fromEvent(document.getElementById('test5'), 'mousemove');
+    let test5 = fromEvent(document.getElementById('test5'), 'click');
 
     let idTest = fromEvent(document.getElementById('test'), 'click')
       .subscribe(event => console.log(event));
 
-    // this.combinedClick$ = combineLatest([this.idTest5, this.test5 ]).pipe(
-    //   map(([catLink , mouse]) => catLink.url)
-    // );
-
-    this.combinedClick$ = this.test5.pipe(
-        mergeMap((e : Event) => this.idTest5.pipe(map(x => x.url)))
+    this.combinedClick$ = test5.pipe(
+        mergeMap((e : Event) => idTest5.pipe(map(x => x.url)))
         // map(([catLink , mouse]) => catLink.url
       );
 
