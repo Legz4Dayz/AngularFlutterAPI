@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CreateAccountComponent } from './pages/create-account/create-account/create-account.component';
 import { ValidationMessageComponent } from './reusablecomponents/validation-message/validation-message.component';
+import { VideoComponent } from './pages/videos/video/video.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ValidationMessageComponent } from './reusablecomponents/validation-mess
     HomeComponent,
     SignInComponent,
     CreateAccountComponent,
-    ValidationMessageComponent
+    ValidationMessageComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
