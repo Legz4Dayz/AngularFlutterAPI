@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit } from '@angular/core';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,11 +15,10 @@ import { catchError, map, tap, throttleTime } from 'rxjs/operators';
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignInComponent implements OnInit {
-
- 
-
+  
   constructor( private route: Router, private signinService : SignInService, private fb: FormBuilder) { }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   validationAction$ = new BehaviorSubject<boolean>(null);
   show = false;
@@ -61,4 +60,3 @@ export class SignInComponent implements OnInit {
       this.validationAction$.next(false);
   }
 }
-
