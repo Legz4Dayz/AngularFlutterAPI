@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class CustomRowButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onClickFunction;
+  final Key key;
 
-  CustomRowButton({@required this.buttonText, @required this.onClickFunction});
+  CustomRowButton(
+      {@required this.buttonText, @required this.onClickFunction, this.key});
 
   @override
   Widget build(BuildContext context) {

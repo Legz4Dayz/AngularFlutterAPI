@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CustomRowButton(
+              key: Key('WidgetTestingEntry'),
               buttonText: 'Widget Testing',
               onClickFunction: () => Router.routeToWidgetPractice(),
             ),
@@ -41,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onClickFunction: () => Router.routeToFirebasePractice(),
             ),
             CustomRowButton(
+              key: Key('ProviderTestingEntry'),
               buttonText: 'Provider Practice',
               onClickFunction: () => Router.routeToProviderPractice(),
             ),

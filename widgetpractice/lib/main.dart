@@ -5,23 +5,29 @@ import 'package:widgetpractice/Providers/StreamTest.dart';
 import 'package:widgetpractice/Sailor.dart';
 
 import 'Providers/StockProvider.dart';
+import 'Providers/DummyTestProvider.dart';
 import 'Routes/MyHomePage.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
-  Router.createRoutes();
+  // Router.createRoutes();
   runApp(MyApp());
-  Firebase.initializeApp();
+  // Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Router.createRoutes();
+    Firebase.initializeApp();
+
     return MultiProvider(
         providers: [
           Provider<StockProvider>(create: (_) => StockProvider()),
-          Provider<StreamTest>(create: (_) => StreamTest())
+          Provider<StreamTest>(create: (_) => StreamTest()),
+          ChangeNotifierProvider<DummyTestProvider>(
+              create: (_) => DummyTestProvider())
         ],
         child: MaterialApp(
           title: 'Flutter Demo',

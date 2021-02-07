@@ -7,24 +7,83 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
+import 'package:widgetpractice/CustomWidgets/CustomList.dart';
+import 'package:widgetpractice/CustomWidgets/RowButton.dart';
+import 'package:widgetpractice/Providers/DummyTestProvider.dart';
+import 'package:widgetpractice/Routes/ProviderPracticePage.dart';
 
 import 'package:widgetpractice/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('MyApp test', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    final widgetTestingEntry = find.byKey(Key('WidgetTestingEntry'));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(widgetTestingEntry, findsNWidgets(1));
+
+    await tester.tap(widgetTestingEntry);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(CustomList), findsOneWidget);
   });
+
+  testWidgets('Provider Page Test', (WidgetTester tester) async {
+    await tester.pumpWidget(TestSetup.appWrapper(ProviderPracticePage()));
+
+    final dummyButton = find.byKey(Key('DummyButton'));
+
+    expect(find.byType(Scaffold), findsOneWidget);
+
+    expect(find.text('Test'), findsOneWidget);
+
+    expect(find.text('Test'), findsOneWidget);
+
+    await tester.tap(dummyButton);
+
+    await tester.pumpAndSettle();
+
+    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Test'), findsNothing);
+
+    expect(find.byType(TextField), findsOneWidget);
+  });
+
+  testWidgets('Provider Page Text Test', (WidgetTester tester) async {
+    await tester.pumpWidget(TestSetup.appWrapper(ProviderPracticePage()));
+
+    String testText = 'TestText';
+
+    // TestField cut = find.byType(TextField);
+    TextField cut = tester.widget(find.byType(TextField));
+
+    expect(find.byType(TextField), findsOneWidget);
+    await tester.enterText(find.byType(TextField), testText);
+
+    expect(cut.controller.value.text, equals(testText));
+
+    cut.onSubmitted(cut.controller.value.text);
+
+    expect(find.text(testText), findsOneWidget);
+
+    expect(
+        tester
+            .state(find.byType(MaterialApp))
+            .context
+            .read<DummyTestProvider>()
+            .testString,
+        equals(testText));
+  });
+}
+
+class TestSetup {
+  static Widget appWrapper(Widget widgetUnderTest) {
+    return ChangeNotifierProvider<DummyTestProvider>(
+        create: (_) => DummyTestProvider(),
+        child: MaterialApp(home: widgetUnderTest));
+  }
 }
