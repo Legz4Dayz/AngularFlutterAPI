@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widgetpractice/Providers/DummyTestProvider.dart';
+import 'package:widgetpractice/Services/ProviderPageService.dart';
 
-class ProviderPracticePage extends StatelessWidget {
-  const ProviderPracticePage({Key key}) : super(key: key);
+class ProviderPracticePage extends StatefulWidget {
+  ProviderPracticePage({Key key, @required this.pageService}) : super(key: key);
+  IProviderPageService pageService;
 
+  @override
+  _providerPracticePageState createState() => _providerPracticePageState();
+}
+
+class _providerPracticePageState extends State<ProviderPracticePage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = new TextEditingController();
-
     return Scaffold(
         appBar: AppBar(
           title: Text('Provider Practice'),
@@ -25,7 +31,13 @@ class ProviderPracticePage extends StatelessWidget {
                 )),
             MaterialButton(
               child: Text('Submit'),
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          content: Text(this.widget.pageService.returnMyName()),
+                        ));
+              },
             ),
             Text(context.watch<DummyTestProvider>().testString),
             MaterialButton(

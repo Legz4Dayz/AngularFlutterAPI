@@ -13,11 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:widgetpractice/CustomWidgets/CustomList.dart';
-import 'package:widgetpractice/CustomWidgets/RowButton.dart';
 import 'package:widgetpractice/Providers/DummyTestProvider.dart';
 import 'package:widgetpractice/Routes/ProviderPracticePage.dart';
 
 import 'package:widgetpractice/main.dart';
+import 'package:widgetpractice/Services/ProviderPageService.dart';
+
+import 'TestSetups/ProviderPageTestSetup.dart';
 
 void main() {
   testWidgets('MyApp test', (WidgetTester tester) async {
@@ -37,7 +39,8 @@ void main() {
   });
 
   testWidgets('Provider Page Test', (WidgetTester tester) async {
-    await tester.pumpWidget(TestSetup.appWrapper(ProviderPracticePage()));
+    await tester.pumpWidget(ProviderPageTestSetup.appWrapper(
+        ProviderPracticePage(pageService: ProviderPageService())));
 
     final dummyButton = find.byKey(Key('DummyButton'));
 
@@ -58,7 +61,10 @@ void main() {
   });
 
   testWidgets('Provider Page Text Test', (WidgetTester tester) async {
-    await tester.pumpWidget(TestSetup.appWrapper(ProviderPracticePage()));
+    await tester
+        .pumpWidget(ProviderPageTestSetup.appWrapper(ProviderPracticePage(
+      pageService: ProviderPageService(),
+    )));
 
     String testText = 'TestText';
 
@@ -82,12 +88,23 @@ void main() {
             .testString,
         equals(testText));
   });
-}
 
-class TestSetup {
-  static Widget appWrapper(Widget widgetUnderTest) {
-    return ChangeNotifierProvider<DummyTestProvider>(
-        create: (_) => DummyTestProvider(),
-        child: MaterialApp(home: widgetUnderTest));
-  }
+  testWidgets('Provider Page Alert Test', (WidgetTester tester) async {
+    await tester.pumpWidget(ProviderPageTestSetup.appWrapper(
+        ProviderPracticePage(pageService: ProviderPageService())));
+
+    await tester.tap(find.text('Submit'));
+
+    expect(find.text('Submit'), findsOneWidget);
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(AlertDialog), findsOneWidget);
+
+    await tester.tapAt(Offset(20, 20));
+
+    await tester.pumpAndSettle();
+
+    expect(find.byType(AlertDialog), findsNothing);
+  });
 }

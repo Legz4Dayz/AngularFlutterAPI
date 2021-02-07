@@ -5,6 +5,7 @@ import 'Routes/FirebasePracticePage.dart';
 import 'Routes/MyHomePage.dart';
 import 'Routes/ProviderPracticePage.dart';
 import 'Routes/WidgetPractice.dart';
+import 'package:widgetpractice/Services/ProviderPageService.dart';
 
 class Router {
   static final sailor = new Sailor();
@@ -33,7 +34,9 @@ class Router {
       SailorRoute(
           name: '/providerPractice',
           builder: (context, args, params) {
-            return ProviderPracticePage();
+            return ProviderPracticePage(
+              pageService: ProviderPageService(),
+            );
           }),
       SailorRoute(
           name: '/advancedPractice',
