@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { command } from 'src/app/models/command';
 import { map, tap } from 'rxjs/operators'
 import { commandPipeTest } from 'src/app/models/commandPipeTest';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,17 @@ import { commandPipeTest } from 'src/app/models/commandPipeTest';
 })
 export class AppComponent {
 
-  constructor( private http : HttpClient)
+  constructor( private http : HttpClient, private route : Router)
   {
+  }
+
+  loginCheck : string = this.route.url;
+
+   test() : boolean {
+    if(this.loginCheck == '/')
+      return false;
+    else
+      return true;
   }
 
   width: number = 0;
@@ -21,5 +31,7 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     console.log(this.height);
+
+    console.log(this.loginCheck);
   }
 }

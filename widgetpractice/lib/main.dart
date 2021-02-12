@@ -2,8 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:widgetpractice/Providers/StreamTest.dart';
-import 'package:widgetpractice/Sailor.dart';
+import 'package:widgetpractice/Sailor.dart' as Rout;
 
+import 'Injectorables/injection.dart';
 import 'Providers/StockProvider.dart';
 import 'Providers/DummyTestProvider.dart';
 import 'Routes/MyHomePage.dart';
@@ -11,7 +12,7 @@ import 'Routes/MyHomePage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
-  // Router.createRoutes();
+  configureInjection(Env.prod);
   runApp(MyApp());
   // Firebase.initializeApp();
 }
@@ -19,7 +20,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Router.createRoutes();
+    Rout.Router.createRoutes();
     Firebase.initializeApp();
 
     return MultiProvider(
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
-          onGenerateRoute: Router.sailor.generator(),
-          navigatorKey: Router.sailor.navigatorKey,
+          onGenerateRoute: Rout.Router.sailor.generator(),
+          navigatorKey: Rout.Router.sailor.navigatorKey,
           theme: ThemeData(
             backgroundColor: Colors.grey,
             scaffoldBackgroundColor: Colors.blueGrey,

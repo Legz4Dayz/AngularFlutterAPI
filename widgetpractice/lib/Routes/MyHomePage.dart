@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sailor/sailor.dart';
+import 'package:widgetpractice/Sailor.dart' as Rout;
 import 'package:widgetpractice/CustomWidgets/RowButton.dart';
 
 import '../Sailor.dart';
@@ -35,22 +36,22 @@ class _MyHomePageState extends State<MyHomePage> {
             CustomRowButton(
               key: Key('WidgetTestingEntry'),
               buttonText: 'Widget Testing',
-              onClickFunction: () => Router.routeToWidgetPractice(),
+              onClickFunction: () => Rout.Router.routeToWidgetPractice(),
             ),
             CustomRowButton(
               buttonText: 'Firebase Testing',
-              onClickFunction: () => Router.routeToFirebasePractice(),
+              onClickFunction: () => Rout.Router.routeToFirebasePractice(),
             ),
             CustomRowButton(
               key: Key('ProviderTestingEntry'),
               buttonText: 'Provider Practice',
-              onClickFunction: () => Router.routeToProviderPractice(),
+              onClickFunction: () => Rout.Router.routeToProviderPractice(),
             ),
             CustomRowButton(
                 buttonText: 'Advanced',
                 onClickFunction: () {
                   Stack(children: [Container(child: Text('Yes'))]);
-                  Router.routeToAdvanced();
+                  Rout.Router.routeToAdvanced();
                 }),
           ],
         ),

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GrN7KqmeVNILO+v8iQE0xJwu2FEL0bhflzJsMJCxo7QHU4XWVYs+EAC51XUSDHpcgkpMOJMeCNccM4ACT735yA==",
+  "dgSpecHash": "oM5+JWNSwPFyrNLNvcWjo/XgLmYU2iF5lhu5uJmvIQiPm5CF9NIBtZ5iNJnHqImwxky2Lpr5KDGmiEUtlCkElw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mitchell Livingston\\source\\repos\\angularhomepage\\angularflutterapi\\Commander.csproj",
+  "projectFilePath": "C:\\Users\\Mitchell Livingston\\Source\\Repos\\AngularHomepage\\AngularFlutterAPI\\Commander.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mitchell Livingston\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Mitchell Livingston\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",

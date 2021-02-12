@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgetpractice/CustomWidgets/StreamExample.dart';
 import 'package:widgetpractice/CustomWidgets/StreamWidgets.dart';
 
 class AdvancedPracticePage extends StatelessWidget {
